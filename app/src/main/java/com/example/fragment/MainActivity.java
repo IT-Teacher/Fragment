@@ -7,6 +7,8 @@ import android.widget.Button;
 
 public class MainActivity extends AppCompatActivity {
     Button button1, button2;
+    FirstFragment firstFragment;
+    SecondFragment secondFragment;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -15,10 +17,12 @@ public class MainActivity extends AppCompatActivity {
         button2 = findViewById(R.id.btn2);
 
         button1.setOnClickListener(view->{
+
             getSupportFragmentManager().beginTransaction()
                     .setReorderingAllowed(true)
                     .replace(R.id.fragment, FirstFragment.class, null)
                     .commit();
+
         });
         button2.setOnClickListener(view->{
             getSupportFragmentManager().beginTransaction()
@@ -26,5 +30,8 @@ public class MainActivity extends AppCompatActivity {
                     .replace(R.id.fragment, SecondFragment.class, null)
                     .commit();
         });
+
+
     }
+
 }
